@@ -14,7 +14,7 @@ resource "aws_instance" "main" {
 resource "terraform_data" "main" {
   # Changes to any instance of the cluster requires re-provisioning
   triggers_replace = [
-    aws_instance.roboshop.id
+    aws_instance.main.id
   ]
 
   # Bootstrap script can run on any instance of the cluster
@@ -35,7 +35,7 @@ resource "terraform_data" "main" {
   provisioner "remote-exec" {
     inline = [
       "chmod+x /tmp/bootstrap.sh",
-      "sudo /tmp/bootstrap.sh ${var.component} ${var.environment}" 
+      "sudo sh /tmp/bootstrap.sh ${var.component} ${var.environment}" 
     ]
   }
 }
