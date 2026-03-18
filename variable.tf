@@ -14,14 +14,6 @@ variable "zone_id"{
     default = "Z01510281GETZQBO4NWF0"
 }
 
-variable "vpc_security_group_ids"{
-    
-}
-
-variable "subnet_id"{
-
-}
-
 variable component{
 
 }
